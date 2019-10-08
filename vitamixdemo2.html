@@ -36,7 +36,7 @@
 
 
     <a-assets>
-   
+    <img id="playbutton" src="https://static.wixstatic.com/media/53058a_b2eb768f7b2541d68eb9b6bce7f87a88~mv2.png/v1/fill/w_1920,h_1080/PlayButton1080image.png">
       <video
         id="currentVideo"
         autoplay="true"
@@ -60,7 +60,7 @@
     <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
     <a-entity 
       xrextras-named-image-target="name: VM"
-      xrextras-play-video="video: #currentVideo; ";
+      xrextras-play-video="video: #currentVideo; thumb: playbutton";
       geometry="primitive: plane; height: 0.85; width: 1.38;"
       >
       
