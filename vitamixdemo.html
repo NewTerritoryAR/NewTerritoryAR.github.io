@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Vitamix Demo</title>
+  <!-- script to include aframe -->
+  <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
+
+
+   <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+  <script src="/xrxtras.js"></script>
+  <!-- 8thWall Web - Replace the app key here with your own app key -->
+  <script src="//apps.8thwall.com/xrweb?appKey=rZ6k1u0iwXKfXd35NTWnu3EQNGKlLxb5YDQssvHsaBi9oxtWJUgHdFJzkQIvaVFyWRhhZa"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Materialize cdn links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <style>
+    .carousel {
+      height: 150px;
+    }
+
+    .carousel .carousel-item {
+      height: 140px;
+      width: 140px;
+      font-size: 1.1em;
+      line-height: 28px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    #almond-btn {
+      background-image: url('image_files/peanut-butter.jpg');
+      background-size: 140px 140px;
+    }
+
+    #caramel-btn {
+      background-image: url('image_files/caramel-espresso-frappe.jpg');
+      background-size: 140px 140px;
+    }
+
+    #mango-btn {
+      background-image: url('image_files/mango-sorbet.jpg');
+      background-size: 140px 140px;
+    }
+
+    #thyme-btn {
+      background-image: url('image_files/thyme-tomato-soup.jpg');
+      background-size: 140px 140px;
+    }
+
+    #green-btn {
+      background-image: url('image_files/green-smoothie.jpg');
+      background-size: 140px 140px;
+    }
+
+    #dips-btn {
+      background-image: url('image_files/edamame-dip.jpg');
+      background-size: 140px 140px;
+    }
+  </style>
+
+  <!-- load and wire up carousel -->
+  <script type="application/javascript">
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems);
+    });
+
+    function almondClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#almondVideo';
+    }
+
+    function caramelClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_8db85fa4d49a4f84831a102adca8dcf0/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#caramelVideo';
+    }
+
+    function mangoClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_bc6481ce5d18468cb30cc3e13bcb9d40/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#mangoVideo';
+    }
+
+    function thymeClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_2ad1389c47eb4406a98839948215b0b0/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#thymeVideo';
+    }
+
+    function greenClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_c82614ee80de47c3811b947d563f97c7/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#greenVideo';
+    }
+
+    function dipsClick() {
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_a45a508ea7374576a060bae2c040b7ca/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#dipsVideo';
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="carousel" style= "position: fixed; bottom: 0; z-index: 1200;">
+    <button id="almond-btn" class="waves-effect waves-light btn carousel-item" onclick="almondClick()">
+      <span>Almond Butter</span>
+    </button>
+    <button id="caramel-btn" class="waves-effect waves-light btn carousel-item" onclick="caramelClick()">
+      <span>Caramel Espresso Frappe</span>
+    </button>
+    <button id="mango-btn" class="waves-effect waves-light btn carousel-item" onclick="mangoClick()">
+      <span>Mango Coconut Sorbet</span>
+    </button>
+    <button id="thyme-btn" class="waves-effect waves-light btn carousel-item" onclick="thymeClick()">
+      <span>Thyme for Tomato Soup</span>
+    </button>
+    <button id="green-btn" class="waves-effect waves-light btn carousel-item" onclick="greenClick()">
+      <span>Going Green Smoothie</span>
+    </button>
+    <button id="dips-btn" class="waves-effect waves-light btn carousel-item" onclick="dipsClick()">
+      <span>Delicious Dips</span>
+    </button>
+  </div>
+
+  <a-scene
+    xrweb="disableWorldTracking: true"
+    xrextras-gesture-detector
+    xrextras-almost-there
+    xrextras-loading
+    xrextras-runtime-error>
+    <a-assets>
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_7193749490e4499ba4edb5852a5d2d10/1080p/mp4/file.mp4">
+      </video>
+      <!-- Almond butter video -->
+      <video
+        id="almondVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Caramel Espresso Frappe video -->
+      <video
+        id="caramelVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_8db85fa4d49a4f84831a102adca8dcf0/1080p/mp4/file.mp4">
+      </video>
+      <!-- Mango Coconut Sorbet video -->
+      <video
+        id="mangoVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_2ad1389c47eb4406a98839948215b0b0/1080p/mp4/file.mp4">
+      </video>
+      <!-- Thyme for Tomato Soup video -->
+      <video
+        id="thymeVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_c82614ee80de47c3811b947d563f97c7/1080p/mp4/file.mp4">
+      </video>
+      <!-- Going Green Smoothie video -->
+      <video
+        id="greenVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_a45a508ea7374576a060bae2c040b7ca/1080p/mp4/file.mp4">
+      </video>
+      <!-- Delicious Dips video -->
+      <video
+        id="dipsVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+
+    </a-assets>
+
+    <a-camera
+      position="0 4 10"
+      raycaster="objects: .cantap"
+      cursor="fuse: false; rayOrigin: mouse;">
+    </a-camera>
+
+    <a-entity
+      id="player"
+      xrextras-named-image-target="name: vitamixtarget"
+      xrextras-play-video="video: #vitamixVideo; canstop: true"
+      geometry="primitive: plane; height:0.85 ; width: 1.38;" />
+
+    <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+
+    <a-light type="ambient" intensity="1"></a-light>
+
+  </a-scene>
+
+</body>
+</html>
